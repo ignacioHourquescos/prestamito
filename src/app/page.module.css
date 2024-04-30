@@ -32,3 +32,51 @@
   cursor: pointer;
   z-index: 999; /* Ensure the button is on top of the video */
 }
+
+.splashContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  padding: 20px;
+}
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.blackText {
+  color: #000; /* Black color */
+}
+
+.redText {
+  color: #C12930; /* Red color */
+}
+
+.description {
+  font-size: 11px;
+  color: #333; /* Dark gray color */
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.playButton {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.startButton {
+	background-color: #C12930;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+}
