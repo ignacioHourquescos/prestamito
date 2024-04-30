@@ -20,7 +20,7 @@ export default function Home() {
 		if (isPlaying) {
 			timeout = setTimeout(() => {
 				setShowRedBackground(true);
-			}, 3000); // 10 seconds
+			}, 13000); // 10 seconds
 		}
 
 		return () => clearTimeout(timeout);
