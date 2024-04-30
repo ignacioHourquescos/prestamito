@@ -1,25 +1,30 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import styles from "./page.module.css";
+import DotsMobileStepper from "./components/questions/question";
 
 export default function Home() {
 	const [showSplash, setShowSplash] = useState(true);
 	const [isPlaying, setIsPlaying] = useState(false);
+	const [showRedBackground, setShowRedBackground] = useState(false); // State to control showing the red background
 
 	const videoRef = useRef(null);
-
-	// useEffect(() => {
-	// 	const timer = setTimeout(() => {
-	// 		setShowSplash(false);
-	// 	}, 5000); // 5000 milliseconds = 5 seconds
-
-	// 	return () => clearTimeout(timer);
-	// }, []); // Run only once on component mount
 
 	const handlePlay = () => {
 		setIsPlaying(true);
 		videoRef.current.play();
 	};
+
+	useEffect(() => {
+		let timeout;
+		if (isPlaying) {
+			timeout = setTimeout(() => {
+				setShowRedBackground(true);
+			}, 3000); // 10 seconds
+		}
+
+		return () => clearTimeout(timeout);
+	}, [isPlaying]);
 
 	return (
 		<main className={styles.main}>
@@ -43,6 +48,11 @@ export default function Home() {
 						<source src="../../intro2.mp4" type="video/mp4" />
 						Your browser does not support the video tag.
 					</video>
+				</div>
+			)}
+			{showRedBackground && ( // Render red background div if showRedBackground is true
+				<div className={styles.redBackground}>
+					<DotsMobileStepper />
 				</div>
 			)}
 		</main>
