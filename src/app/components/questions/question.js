@@ -74,7 +74,7 @@ export default function DotsMobileStepper() {
 				{questions[activeStep].map((question, index) => (
 					<React.Fragment key={index}>
 						<div className={styles.questions_specific}>{question}</div>
-						{index !== questions[activeStep].length - 1 && <br />}
+						{index !== questions[activeStep].length - 1}
 					</React.Fragment>
 				))}
 			</div>

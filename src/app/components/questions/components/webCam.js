@@ -1,12 +1,13 @@
 import React, { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
-import style from "../../../page.module.css";
+import style from "./webCam.module.css";
 
 export default function WebcamVideo(videoRecordedHandler) {
 	const webcamRef = useRef(null);
 	const mediaRecorderRef = useRef(null);
 	const [capturing, setCapturing] = useState(false);
 	const [recordedChunks, setRecordedChunks] = useState([]);
+	const [showAnimation, setShowAnimation] = useState(false);
 
 	const handleDataAvailable = useCallback(
 		({ data }) => {
@@ -19,6 +20,7 @@ export default function WebcamVideo(videoRecordedHandler) {
 
 	const handleStartCaptureClick = useCallback(() => {
 		setCapturing(true);
+		setShowAnimation(true);
 		mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
 			mimeType: "video/webm",
 		});
@@ -32,6 +34,7 @@ export default function WebcamVideo(videoRecordedHandler) {
 	const handleStopCaptureClick = useCallback(() => {
 		mediaRecorderRef.current.stop();
 		setCapturing(false);
+		setShowAnimation(false);
 	}, [mediaRecorderRef, setCapturing]);
 
 	const handleDownload = useCallback(() => {
@@ -58,37 +61,44 @@ export default function WebcamVideo(videoRecordedHandler) {
 	};
 
 	return (
-		<div className="Container">
-			<Webcam
-				height={400}
-				width={400}
-				audio={false}
-				mirrored={true}
-				ref={webcamRef}
-				videoConstraints={videoConstraints}
-			/>
+		<div className={style.container}>
+			<div className={style.video_wrapper}>
+				<div className={style.video_wrapper_center}>
+					<Webcam
+						width={300}
+						audio={false}
+						mirrored={true}
+						ref={webcamRef}
+						videoConstraints={videoConstraints}
+					/>
+				</div>
+				{showAnimation && <div className={style.redLine}></div>}
+			</div>
 			<div style={{ width: "100%" }}>
 				{capturing ? (
-					<button className={style.startButton2} Click={handleStopCaptureClick}>
+					<button
+						className={style.startButton2}
+						onClick={handleStopCaptureClick}
+					>
 						Stop Capture
 					</button>
 				) : (
 					<button
 						className={style.startButton2}
 						onClick={() => {
-							handleStartCaptureClick;
-							videoRecordedHandler;
+							handleStartCaptureClick();
+							videoRecordedHandler();
 						}}
 					>
 						Start Capture
 					</button>
 				)}
 			</div>
-			{recordedChunks.length > 0 && (
+			{/* {recordedChunks.length > 0 && (
 				<button className={style.startButton2} onClick={handleDownload}>
 					Download
 				</button>
-			)}
+			)} */}
 		</div>
 	);
 }
