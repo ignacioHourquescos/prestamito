@@ -12,7 +12,7 @@ export default function Home() {
 
 	const handlePlay = () => {
 		setIsPlaying(true);
-		videoRef.current.play();
+		videoRef.current?.play();
 	};
 
 	useEffect(() => {

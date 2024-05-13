@@ -122,9 +122,21 @@ export default function DotsMobileStepper() {
 				steps={8}
 				position="static"
 				activeStep={activeStep}
-				sx={{ maxWidth: 600, flexGrow: 1 }}
+				sx={{
+					maxWidth: 600,
+					flexGrow: 1,
+					color: "red",
+					backgroundColor: "#972026",
+					paddingBottom: "1rem",
+					paddingTop: "1rem",
+				}}
 				nextButton={
-					<Button size="small" onClick={handleNext} disabled={activeStep === 8}>
+					<Button
+						size="small"
+						onClick={handleNext}
+						disabled={activeStep === 8}
+						sx={{ color: "white" }}
+					>
 						Siguiente
 						{theme.direction === "rtl" ? (
 							<KeyboardArrowLeft />
@@ -134,7 +146,12 @@ export default function DotsMobileStepper() {
 					</Button>
 				}
 				backButton={
-					<Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+					<Button
+						size="small"
+						onClick={handleBack}
+						disabled={activeStep === 0}
+						sx={{ color: "white" }}
+					>
 						{theme.direction === "rtl" ? (
 							<KeyboardArrowRight />
 						) : (

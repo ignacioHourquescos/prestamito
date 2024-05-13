@@ -60,15 +60,14 @@ export default function WebcamVideo({ resetAnimation }) {
 			};
 		}
 	}, [showAnimation]);
-
 	useEffect(() => {
 		if (resetAnimation) {
 			setShowAnimation(false);
 			setCompleted(false);
 			setCounter(30);
+			setCapturing(false); // Asegura que la captura se detenga cuando cambie de paso
 		}
 	}, [resetAnimation]);
-
 	const handleDownload = useCallback(() => {
 		if (recordedChunks.length) {
 			const blob = new Blob(recordedChunks, {

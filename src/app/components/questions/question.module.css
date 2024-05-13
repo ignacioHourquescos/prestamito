@@ -39,7 +39,7 @@
   font-style: normal;
   font-size: 1.5rem;
   width:100%;
-  height:80%;
+  height:90%;
   z-index:1200;
 }
 
@@ -57,4 +57,8 @@
 .recordButton:hover {
   background-color: white;
   color: #c12930;
+}
+
+.MuiButton-root{
+  color: red !important;
 }
