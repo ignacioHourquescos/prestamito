@@ -74,7 +74,7 @@ export default function DotsMobileStepper() {
 		},
 		{
 			title: "Gracias",
-			questions: ["Nos conctataremos con vo via Whatsapp"],
+			questions: ["Nos conctataremos con vos via Whatsapp"],
 		},
 	];
 
