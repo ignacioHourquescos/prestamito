@@ -95,7 +95,11 @@ export default function DotsMobileStepper() {
 	return (
 		<div className={`${styles.container} ${styles.koho_regular}`}>
 			{activeStep % 2 == 0 && (
-				<div className={styles.introStep}>
+				<div
+					className={`${styles.introStep} ${
+						activeStep === 8 ? styles.lastStep : ""
+					}`}
+				>
 					{stepTexts[Math.floor(activeStep / 2)].title} {/* Título */}
 					{/* Preguntas debajo del título */}
 					{stepTexts[Math.floor(activeStep / 2)].questions.map(
@@ -126,7 +130,7 @@ export default function DotsMobileStepper() {
 					maxWidth: 600,
 					flexGrow: 1,
 					color: "red",
-					backgroundColor: "#972026",
+					backgroundColor: "#00272B",
 					paddingBottom: "1rem",
 					paddingTop: "1rem",
 				}}
@@ -163,7 +167,7 @@ export default function DotsMobileStepper() {
 			/>
 			<br />
 			<br />
-			<br />
+
 			<WebcamVideo
 				resetAnimation={resetAnimation}
 				capturing={capturing}

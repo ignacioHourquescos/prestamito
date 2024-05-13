@@ -27,7 +27,7 @@
 
 .introStep {
   position: fixed;
-  top: 10%;
+  top: 8%;
   left: 0%;
 
   background-color: #c12930;
@@ -61,4 +61,8 @@
 
 .MuiButton-root{
   color: red !important;
+}
+
+.lastStep {
+  background-color: #00272B;
 }
