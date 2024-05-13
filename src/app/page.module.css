@@ -96,9 +96,10 @@
   left: 0;
   width: 100vw;
   height: 80vh;
+  background-color: white;
 
 z-index: 999; /* Ensure it's above other content */
-animation: fadeIn 2s ease;
+
 }
 
 @keyframes fadeIn {

@@ -1,66 +1,96 @@
-.container{
+.container {
   /* border:2px solid red; */
 }
 
-.video_wrapper{
-  display:flex;
+.video_wrapper {
+  display: flex;
   justify-content: center;
   justify-items: center;
-
-  flex-direction:column;
-  margin-bottom:1rem;
+  flex-direction: column;
+  margin-bottom: 0;
 }
 
-.video_wrapper_center{
-  display:flex;
+.video_wrapper_center {
+  display: flex;
   justify-content: center;
   justify-items: center;
+  position: relative;
+}
+
+.animationOverlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:15px;
+}
+
+.notificationWrapperRed {
+  background-color: red;
+  border-radius: 20px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
 
 }
-.playButton {
-  padding: 10px 20px;
-  background-color: #fff;
-  margin: 0 1rem;
-  margin: 5%;
-  width:90%;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+
+.notificationWrapperGreen {
+  background-color: green;
+  border-radius: 20px;
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
 }
-.startButton {
-	background-color: #C12930;
-	color: white;
-  margin: 1rem;
-  margin: 5%;
-  width:90%;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 16px;
-	cursor: pointer;
+
+.redCircle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white; /* Cambiar a blanco para que sea visible en el fondo rojo */
+  margin-right: 5px;
 }
-.startButton2 {
-	background-color: #C12930;
-	color: white;
+
+.blink {
+  animation: blinkAnimation 1s infinite;
+}
+
+@keyframes blinkAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.recordingText {
   color: white;
-  margin: 5%;
-  width:90%;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 16px;
-	cursor: pointer;
-
+  margin-left: 5px;
+  font-size: 16px;
+  font-weight: bold;
 }
-.redLine {
 
+.completedText {
+  color: white;
+  margin-left: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.redLine {
   bottom: 0;
   left: 0;
-  width: 5px;
-  height: 5px;
-  margin: 5%;
-  width:90%;
+  width: 300px;
+  height: 10px;
+  margin: 0 5%;
+  width: 70%;
   background-color: red;
   animation: expandLine 30s forwards;
 }
@@ -68,14 +98,38 @@
 @keyframes expandLine {
   0% {
     width: 5px;
-    height: 5px;
-
+    height: 10px;
     background-color: red;
   }
   100% {
-    width:90%;
-    height: 5px;
+    width: 90%;
+    height: 10px;
     border-radius: 0;
     background-color: red;
   }
+}
+
+.startButton2 {
+  background-color: #c12930;
+  color: white;
+  margin: 5%;
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.stopButton {
+  background-color: #c12930;
+}
+
+.counter{
+  width:100%;
+  display:flex;
+  justify-content: center;
+  margin:auto;
+  font-size:1rem;
+  font-weight: normal;
 }
