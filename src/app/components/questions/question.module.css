@@ -27,7 +27,7 @@
 
 .introStep {
   position: fixed;
-  top: 6%;
+  top: 10%;
   left: 0%;
 
   background-color: #c12930;
@@ -41,4 +41,20 @@
   width:100%;
   height:80%;
   z-index:1200;
+}
+
+.recordButton {
+  margin-top: 3rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 200px;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size:1.2rem;
+}
+
+.recordButton:hover {
+  background-color: white;
+  color: #c12930;
 }

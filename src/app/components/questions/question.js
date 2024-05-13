@@ -44,9 +44,9 @@ export default function DotsMobileStepper() {
 
 	const stepTexts = [
 		{
-			title: "Acerca de vos",
+			title: "Contanos acerca de vos",
 			questions: [
-				"¿Hace cuántos años comenzaste?",
+				"¿Hace cuántos años comenzaste con tu emprendimiento?",
 				"¿Cuántas personas trabajan?",
 				"¿Tienes otro trabajo aparte?",
 			],
@@ -105,6 +105,16 @@ export default function DotsMobileStepper() {
 							</div>
 						)
 					)}
+					{activeStep == 8 ? (
+						""
+					) : (
+						<button
+							className={styles.recordButton}
+							onClick={() => setActiveStep(activeStep + 1)}
+						>
+							Grabar video ⇨
+						</button>
+					)}
 				</div>
 			)}
 			<MobileStepper
@@ -134,6 +144,9 @@ export default function DotsMobileStepper() {
 					</Button>
 				}
 			/>
+			<br />
+			<br />
+			<br />
 			<WebcamVideo
 				resetAnimation={resetAnimation}
 				capturing={capturing}
